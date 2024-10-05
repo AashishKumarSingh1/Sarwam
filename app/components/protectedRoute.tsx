@@ -10,7 +10,7 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     if (!authenticated?.user?.username) {
-      // toast.success("LogIn first!")
+      toast.success("Please Login before Proceeding")
       router.push('/login');
     }
   }, [authenticated, router]);
