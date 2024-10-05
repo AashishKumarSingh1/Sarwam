@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdCheckCircle, MdError } from 'react-icons/md'; // Importing icons
+import { MdCheckCircle, MdError } from 'react-icons/md';
 
 const Modal = ({ message, onClose, isVerified }) => {
   return (

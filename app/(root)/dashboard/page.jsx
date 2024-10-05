@@ -3,17 +3,27 @@ import React, { useEffect, useState, useContext } from 'react';
 import ProtectedRoute from '../../components/protectedRoute';
 import { UserContext } from '../context/user.context';
 import Navbar from '../../components/navbar';
-import Modal from './modal'; // Ensure this is the correct path to your Modal component
-import { useRouter } from 'next/navigation'; // Import useRouter
-
+import Modal from './modal';
+import { useRouter } from 'next/navigation';
+import Studash from './components/studash'
 const Dashboard = () => {
   const [authenticated] = useContext(UserContext);
   const [isVerified, setIsVerified] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [type, setType] = useState();
-  const router = useRouter(); // Initialize the router
+  const router = useRouter();
 
+  const [id,setid]=useState(authenticated?.user?.id ||'');
+  const [username,setusername]=useState(authenticated?.user?.username||'');
+  const [hostel, setHostel] = useState(authenticated?.user?.hostelName || '');
+  const [roomNo, setRoomNo] = useState(authenticated?.user?.roomNo || '');
+  const [rollNo, setRollNo] = useState(authenticated?.user?.rollNo || '');
+  // const [isVerified,setIsVerified]=useState(authenticated?.user?.isVerified||'');
+  const [email,setemail]=useState(authenticated?.user?.email||'');
+  const [college,setcollege]=useState(authenticated?.user?.college||'');
+  const [coupon, setCoupon] = useState('');
+const userdetails={}
   useEffect(() => {
     setType(authenticated?.user?.type);
     setIsVerified(authenticated?.user?.isVerified);
@@ -24,7 +34,7 @@ const Dashboard = () => {
       if (authenticated?.user?.isVerified) {
         setModalMessage(`${authenticated?.user?.username}, your account is verified!`);
       } else {
-        setModalMessage(`Keep patience ${authenticated?.user?.username}. Your application is under verification process. It will take 3 to 4 days! Once Verfied you will have access to the dashboard `);
+        setModalMessage(`After Registration ${authenticated?.user?.username},You need to wait for some time ,and after verification, The dashboard will be similar to this one having all the functionality.`);
       }
       setShowModal(true);
     }
@@ -32,7 +42,7 @@ const Dashboard = () => {
 
   const handleClose = () => {
     setShowModal(false);
-    router.push('/'); // Redirect to the home page
+    // router.push('/'); 
   };
   useEffect(() => {
     // document.body.style.backdropFilter = 'blur(10px)';
@@ -50,6 +60,10 @@ const Dashboard = () => {
       <div className="glass-dashboard-background bg-slate-300">
         <Navbar />
         {showModal && <Modal message={modalMessage} onClose={handleClose} isVerified={isVerified} />}
+        <Studash id={id} username={username} hostel={hostel} rollNo={rollNo} isVerified={isVerified} email={email} college={college} coupon={coupon} />
+        {/* {
+          console.log(id,username,hostel,roomNo,rollNo,email,college,coupon)
+        } */}
       </div>
     </ProtectedRoute>
   );

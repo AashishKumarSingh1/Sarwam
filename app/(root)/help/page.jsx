@@ -5,9 +5,9 @@ import { UserContext } from "../context/user.context";
 import Navbar from "../../components/header";
 import ProtectedRoute from "../../components/protectedRoute";
 // const socket = io(`ws:${process.env.NEXT_PUBLIC_BACKEND_ENDPOINT}:7000`);
-const socket = io('http://localhost:7000');
-
-
+// const socket = io('http://localhost:8010');
+const socket = io('https://socket-sarwam.onrender.com');
+import { useRef } from "react";
 const IChat = () => {
   const [authenticated] = useContext(UserContext);
   const [message, setMessage] = useState("");

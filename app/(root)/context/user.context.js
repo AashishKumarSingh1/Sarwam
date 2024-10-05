@@ -5,10 +5,8 @@ import Cookies from "js-cookie";
 const UserContext = createContext();
 
 const base64UrlDecode = (str) => {
-  // Replace URL-safe characters
   str = str.replace(/-/g, '+').replace(/_/g, '/');
 
-  // Pad with '=' characters
   switch (str.length % 4) {
     case 2: str += '=='; break;
     case 3: str += '='; break;
@@ -31,7 +29,7 @@ const UserProvider = ({ children }) => {
           setAuthenticated({ user, token });
         } catch (error) {
           console.error("Failed to decode token:", error);
-          Cookies.remove("tokenx"); // Remove the token if there's an error
+          Cookies.remove("tokenx");
         }
       }
     };
@@ -59,7 +57,7 @@ const UserProvider = ({ children }) => {
 
     initializeAuthentication();
     checkAuthentication();
-  }, [authenticated.token]); // Add authenticated.token to dependencies to re-run effect if it changes
+  }, [authenticated.token]);
 
   return (
     <UserContext.Provider value={[authenticated, setAuthenticated]}>

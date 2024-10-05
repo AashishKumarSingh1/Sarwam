@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { UserProvider } from "./(root)/context/user.context";
 import { Toaster } from "react-hot-toast";
-
+import { preload } from "react-dom";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",

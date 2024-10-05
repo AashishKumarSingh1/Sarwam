@@ -87,7 +87,7 @@ const Login = () => {
   const handleRememberMeChange = () => {
     setRememberMe(!rememberMe);
   };
-
+  const [shouldRedirect, setShouldRedirect] = useState(false);
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -99,13 +99,15 @@ const Login = () => {
       if (response.status === 200) {
         const { token, user } = response.data;
         Cookies.set('tokenx', token);
-        setAuthenticated({
+        await setAuthenticated({
           user,
           token,
         });
         toast.success("Login successful!");
-        router.push("/")
+        setShouldRedirect(true);
+        router.push("/dashboard")
         window.location.reload();
+        // router.push('/dashboard')
       } else {
         toast.error("Login failed");
       }
@@ -118,8 +120,19 @@ const Login = () => {
       }
     }
   };
+
+  // useEffect(() => {
+  //   if (shouldRedirect) {
+  //     router.push("/dashboard");
+  //   }
+  // }, [shouldRedirect]);
   
-  
+  // useEffect(()=>{
+  //   if(authenticated?.user){
+  //     router.push('/dashboard');
+  //   }
+  //   return
+  // },[authenticated?.user])
 
   return (
     <>

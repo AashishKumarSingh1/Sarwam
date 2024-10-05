@@ -38,7 +38,7 @@ const Signup = () => {
             "Kosi Extension Hostel",
           ],
         },
-      ],
+      ]
     },
     {
       title: "Send OTP",
@@ -174,10 +174,8 @@ const Signup = () => {
 
   const handleNext = async () => {
     if (currentStep === 0) {
-      // On first step (personal info), send OTP
       await sendOtp();
     } else if (currentStep === 1) {
-      // On OTP step, verify OTP
       await verifyOtp();
     } else if (currentStep === steps.length - 1) {
       if (isConfirmed) {
@@ -195,11 +193,11 @@ const Signup = () => {
   };
 
   const sendOtp = async () => {
-    if (otpSendCooldown) return; // Prevent sending if already in cooldown
+    if (otpSendCooldown) return; 
     setOtpSendCooldown(true);
-    setIsLoading(true); // Start loading
+    setIsLoading(true);
 
-    console.log("Sending OTP to:", tempData.email); // Log the email being sent
+    console.log("Sending OTP to:", tempData.email); 
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_ENDPOINT}/api/v1/sendOtp`, {
         email: tempData.email,
@@ -208,14 +206,14 @@ const Signup = () => {
       toast.success("OTP sent to your email!");
       setCurrentStep(currentStep + 1);
     } catch (error) {
-      console.error("Error sending OTP:", error); // Log the error
+      console.error("Error sending OTP:", error); 
       const errorMessage = error?.response?.data?.message || "An error occurred.";
       toast.error(`Failed to send OTP: ${errorMessage}`);
     } finally {
-      setIsLoading(false); // End loading
+      setIsLoading(false); 
       setTimeout(() => {
-        setOtpSendCooldown(false); // Allow sending OTP again after cooldown
-      }, 30000); // 30 seconds cooldown
+        setOtpSendCooldown(false); 
+      }, 30000); 
     }
   };
 
