@@ -1,0 +1,718 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-color: black;
+}
+
+/*
+=============== 
+Global Styles
+=============== 
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: black; /* Changed to black */
+  color: hsl(209, 61%, 16%); /* Darkest grey for text */
+  line-height: 1.5;
+  font-size: 0.875rem;
+  color:white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: 0.1rem; /* Adjusted spacing directly */
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 0.875rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  color: hsl(210, 22%, 49%); /* Grey for paragraphs */
+}
+
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+
+/* global classes */
+
+/* section */
+.section {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px; /* Set maximum width directly */
+}
+
+@media screen and (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
+}
+
+/*
+=============== 
+Questions
+=============== 
+*/
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90vw;
+  margin: 5rem auto;
+  padding: 2.5rem 2rem;
+  max-width: 920px; /* Set fixed width directly */
+  display: grid;
+  gap: 1rem 2rem;
+  background: rgba(248, 244, 244, 0.1); /* Glassy effect */
+  backdrop-filter: blur(10px); /* Apply blur for glassy effect */
+  border-radius: 0.25rem; /* Set border radius directly */
+  z-index: 10px;
+}
+
+.container h3 {
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+  }
+}
+
+.question {
+  padding: 1rem 1.5rem;
+  border: 2px solid hsl(211, 27%, 70%); /* Grey for border */
+  margin-bottom: 1rem;
+  border-radius: 0.25rem; /* Set border radius directly */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.question h4 {
+  text-transform: none;
+  line-height: 1.5;
+}
+
+.question p {
+  color: white; /* Set paragraph color */
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}
+
+.question header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question header h4 {
+  margin-bottom: 0;
+}
+
+.btn {
+  background: transparent;
+  border-color: transparent;
+  width: 2rem;
+  height: 2rem;
+  background: hsl(211, 27%, 70%); /* Grey for button background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: hsl(360, 67%, 44%); /* Dark red for button color */
+  cursor: pointer;
+  margin-left: 1rem;
+  align-self: center;
+  min-width: 2rem;
+}
+
+.question-title {
+  cursor: pointer;
+}
+#new {
+  font-weight: bold; /* Make text bold */
+  color: white; /* Set text color to white for better visibility against black background */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), /* Light blur glow */
+               0 0 10px rgba(255, 255, 255, 0.5); 
+               /* Additional glow for effect */
+               font-size: 60px;
+}
+
+/* aman css */
+
+/* Center the Heading and Add Glow Effect */
+#creator {
+  font-size: 48px; /* Adjust font size as needed */
+  color: white; /* Text color */
+  text-align: center; /* Center text horizontally */
+  margin: 50px 0; /* Add space above and below the heading */
+  
+  /* Glow Effect */
+  text-shadow: 0 0 10px rgba(173, 216, 230, 0.8), /* Soft blue glow */
+               0 0 20px rgba(173, 216, 230, 0.6),
+               0 0 30px rgba(173, 216, 230, 0.4),
+               0 0 40px rgba(173, 216, 230, 0.3);
+}
+
+/* Optionally, you can add a hover effect for extra glow */
+#creator:hover {
+  text-shadow: 0 0 15px rgba(173, 216, 230, 1),
+               0 0 30px rgba(173, 216, 230, 0.8),
+               0 0 45px rgba(173, 216, 230, 0.6),
+               0 0 60px rgba(173, 216, 230, 0.4);
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+  gap: 15px; /* Gap between cards */
+  width: auto; /* Adjusted width for responsiveness */
+  max-width: 100%;
+  margin-top: 50px;
+}
+
+.creator-card {
+  width: 100%;
+  max-width: 250px; /* Limit max width of each card */
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0.15); /* Transparent box */
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Soft border for aesthetics */
+  border-radius: 10px;
+  padding: 20px;
+  backdrop-filter: blur(10px); /* Glass effect */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+}
+
+.creator-card:hover {
+  transform: scale(1.05); /* Enlarge card on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+}
+
+.creator-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Circular image */
+  border: 4px solid white;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.card-content {
+  text-align: center;
+  color: white;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+/* Button Styling */
+#view {
+  background-color: #507be6; /* Green background */
+  color: white; /* White text */
+  padding: 12px 24px; /* Padding for the button */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  text-decoration: none; /* Remove underline for text links */
+  display: inline-block;
+}
+
+/* Hover Effect */
+#view:hover {
+  background-color: #235f9c; /* Darker green on hover */
+  transform: translateY(-3px); /* Lift the button slightly */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Focus Effect (for accessibility) */
+#view:focus {
+  outline: 2px solid #333; /* Highlight focus outline */
+  outline-offset: 4px;
+}
+
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .card-container {
+    justify-content: center; /* Center cards on smaller screens */
+    gap: 15px;
+  }
+
+  .creator-card {
+    width: 100%;
+    max-width: 300px; /* Slightly larger max-width for small screens */
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    gap: 10px;
+  }
+
+  .creator-card {
+    max-width: 90%; /* Adjust width for very small screens */
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+}
+/* ================
+== navbar 
+================ */
+.navbar-logo {
+  font-size: 1.8rem; /* Logo font size */
+  font-weight: bold; /* Bold for emphasis */
+  color: white; /* Logo text color */
+  text-transform: uppercase; /* Uppercase letters for a modern look */
+  position: relative;
+  cursor: pointer; /* Pointer on hover */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover transition */
+}
+
+/* Hover effect for the logo */
+.navbar-logo:hover {
+  color: #4caf50; /* Green color on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Underline effect (like the links) */
+.navbar-logo::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Slightly below the text */
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4caf50; /* Green underline */
+  transition: width 0.3s ease; /* Smooth underline animation */
+}
+
+.navbar-logo:hover::after {
+  width: 100%; /* Animate underline width on hover */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  position: sticky;
+  top:0;
+  z-index: 100;
+}
+
+.navbar-logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* General styling for the navbar links */
+.navbar-links {
+  display: flex;
+  gap: 20px; /* Space between links */
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+  
+}
+
+/* Styling for individual list items */
+.navbar-links li {
+  position: relative;
+}
+
+/* Link styles */
+.navbar-links a {
+  text-decoration: none; /* Remove underline */
+  color: white; /* Link color */
+  font-size: 1.1rem; /* Adjust font size */
+  font-weight: 500; /* Semi-bold for modern look */
+  padding: 10px 15px; /* Padding around the text */
+  display: inline-block; /* For proper padding effect */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover transition */
+}
+
+/* Hover effect for links */
+.navbar-links a:hover {
+  color: #4caf50; /* Green color on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Underline effect (optional, modern look) */
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4caf50; /* Green underline */
+  transition: width 0.3s ease; /* Smooth underline animation */
+}
+
+.navbar-links a:hover::after {
+  width: 100%; /* Animate underline width on hover */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .navbar-links {
+    flex-direction: column; /* Stack links vertically */
+    gap: 15px; /* Reduce gap for mobile */
+    align-items: center; /* Center the links */
+  }
+  
+  .navbar-links a {
+    font-size: 1.2rem; /* Slightly larger font for mobile */
+    padding: 15px; /* Increase padding for touch-friendly links */
+  }
+}
+
+/* Hamburger Menu Styling */
+.hamburger {
+  display: none; /* Initially hidden */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    flex-direction: column;
+    background-color: #333;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+    display: none;
+  }
+
+  .navbar-links.active {
+    transform: translateX(0);
+    display: inline;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-logo {
+    font-size: 1.3rem;
+  }
+
+  .navbar-links a {
+    font-size: 1rem;
+  }
+
+  .navbar-links {
+    gap: 25px;
+  }
+}
+
+/* ===============
+== login sign up
+============== */
+
+  
+input::placeholder,
+select::placeholder {
+    
+    opacity: 0.7; 
+}
+input,
+select {
+    color: white; 
+}
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+  color: black;
+  font-weight: bold;
+  position: relative;
+}
+.completed {
+  background-color: green;
+  color: white;
+}
+.tick {
+  position: absolute;
+  color: white;
+  font-size: 20px;
+}
+
+/* For WebKit Browsers */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  /* background: #2e2e2e; */
+  background-color: transparent;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  /* background: #1a1a1a; */
+  background-color: white;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: whitesmoke; 
+}
+
+/* ==============
+==chat app csss
+========= */
+/* Header */
+/* Header */
+#communityheader {
+  font-size: 48px; /* Adjust the size as needed */
+  color: transparent; /* Make the text itself transparent */
+  -webkit-text-stroke: 1px white; /* Creates the hollow effect */
+  text-shadow: 0 0 10px lightblue, 
+               0 0 20px lightblue, 
+               0 0 30px lightblue; /* Glow effect */
+  text-align: center;
+  margin-bottom: 20px; /* Spacing below the header */
+  position: relative;
+}
+
+/* Active Users Box */
+.active-users-box {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #043333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* To make sure it's on top of other elements */
+}
+
+/* Messages Container */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between messages */
+  padding: 10px;
+  max-width: 800px; /* Limit width of chat */
+  margin: 20px auto; /* Center the container with some top margin */
+  height: 500px; /* Set height */
+  overflow-y: auto; /* Enable scrolling */
+  background-color: #514e4e; /* Light background for chat area */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow-x: hidden;
+}
+
+/* Individual Message */
+.message {
+  max-width: 75%; /* Limit message width */
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 16px;
+  line-height: 1.0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Message bubble shadow */
+  word-wrap: break-word; /* Handle long text */
+  width: fit-content;
+}
+
+/* Left Message */
+.message.left {
+  align-self: flex-start; /* Align to left */
+  background-color: #ffffff; /* White bubble for received messages */
+  border: 1px solid #ddd; /* Border for received messages */
+}
+
+/* Right Message */
+.message.right {
+  align-self: flex-end; /* Align to right */
+  background-color: #00bfa5; /* WhatsApp-like green for sent messages */
+  color: white; /* White text for sent messages */
+  border: 1px solid #00bfa5; /* Border matches background */
+}
+
+/* Message Time (optional styling) */
+.message-time {
+  font-size: 12px; /* Adjust as needed */
+  color: #999; /* Gray color for time */
+}
+
+/* Send Message Form */
+#send-container {
+  max-width: 1800px; /* Keep this max width */
+  margin: 20px auto; /* Center the send container */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Gap between input and send button */
+  position: relative;
+  bottom: 0;
+  width: 100%; /* Full width of the container */
+}
+
+/* Message Input */
+#textinp {
+  flex-grow: 1;
+  height: 40px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 2px solid #ddd;
+  background-color: #b7b3b3;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+/* Input focus state */
+#textinp:focus {
+  border-color: #00bfa5; /* WhatsApp green on focus */
+}
+
+/* Send Button */
+.btn-send {
+  background-color: #00bfff; /* Light blue background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Spacing */
+  border-radius: 30px; /* Rounded edges for a pill shape */
+  font-size: 16px; /* Font size */
+  font-weight: bold; /* Bold text */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Button hover effect */
+.btn-send:hover {
+  background-color: #0088cc; /* Darken on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+}
+
+/* Send Wrapper */
+.send {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
