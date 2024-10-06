@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import data from './data'
-import SingleQuestion from './Question'
+import SingleQuestion from './question'
 
 const Faq = () => {
   const [questions, setQuestions] = useState(data)
